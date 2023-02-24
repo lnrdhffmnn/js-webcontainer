@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { getWebContainerInstance } from "./lib/web-container";
 import ANSIToHTML from "ansi-to-html";
+import { useAtom } from "jotai";
+import { codeAtom } from "./atoms/code";
 
 export default function App() {
-  const [code, setCode] = useState("console.log('Hello World');");
+  const [code, setCode] = useAtom(codeAtom);
   const [isRunning, setIsRunning] = useState(false);
   const [output, setOutput] = useState<string[]>([]);
 
@@ -41,7 +43,7 @@ export default function App() {
   return (
     <div className="w-screen h-screen flex flex-col gap-4 p-4 bg-zinc-100 font-mono">
       <div className="flex items-center gap-4">
-        <h1 className="font-bold text-xl">JS WebContainer</h1>
+        <h1 className="font-bold text-xl">JS WebContainers</h1>
         <button
           onClick={handleCodeRun}
           disabled={isRunning}
@@ -54,7 +56,7 @@ export default function App() {
               viewBox="0 0 24 24"
               strokeWidth={2}
               stroke="currentColor"
-              className="w-4 h-4"
+              className="w-4 h-4 animate-spin"
             >
               <path
                 strokeLinecap="round"
