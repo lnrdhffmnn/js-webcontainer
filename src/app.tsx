@@ -43,7 +43,7 @@ export default function App() {
   return (
     <div className="w-screen h-screen flex flex-col gap-4 p-4 bg-zinc-100 font-mono">
       <div className="flex items-center gap-4">
-        <h1 className="font-bold text-xl">JS WebContainers</h1>
+        <h1 className="font-bold text-xl">JavaScript WebContainer</h1>
         <button
           onClick={handleCodeRun}
           disabled={isRunning}
